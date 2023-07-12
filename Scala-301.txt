@@ -1,0 +1,37 @@
+import scala.io.StdIn._
+object GRADE {
+  def main(args: Array[String]) {
+    //Read the number of grades from the user; the number will be used to determine the size of the array of grades. 
+    var Size = readInt()
+    println("Enter number of grades: "+Size)
+    //The array deceleration using the Size value as the array size
+    var Grades= new Array[Int](Size);
+    //The sum variable will be used to add all of the values of the array elements in order to compute the average of grades. 
+    //We specify sum as a double value.
+    var sum=0.0;
+    //We will use a for loop to get the grades values from the user 
+    for(  i <- 0 to Size-1){
+        var grade = readInt();
+        println("Grade "+(i+1)+": "+grade)
+        Grades(i) = grade;
+        sum+=Grades(i);
+    }
+    //Determine the average of the grade values.
+    var avg=(sum)/Size;
+    //Print the result of the average 
+    println("\nAverage: "+avg);
+    //Set up two variables, max and min, to be used when determining the maximum and minimum element in the array. 
+    var max,min=Grades(0);
+    for(  i <- 0 to Size-1){
+        if(max<Grades(i)){
+            max=Grades(i);
+        }
+        if(min>Grades(i)){
+            min=Grades(i);
+        }
+    }
+    //Print the total value of the maximum and minimum elements in the array of grades.
+    println("Maximum Grade: "+max);
+    println("Minimum Grade: "+min);
+  }
+}
